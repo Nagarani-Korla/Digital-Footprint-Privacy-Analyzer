@@ -73,3 +73,16 @@ Digital-Footprint-Privacy-Analyzer/
 ├── style.css
 ├── script.js
 └── README.md
+## 📸 Project Screenshots
+
+### 1. Home Page
+![Home Page](screenshots/home.png)
+
+### 2. Risk Analysis
+![Risk Analysis](screenshots/risk-analysis.png)
+
+### 3. Inference Analysis
+![Inference Analysis](screenshots/inference.png)
+
+### 4. Privacy Recommendations
+![Privacy Recommendations](screenshots/recommendations.png)
