@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>TraceGuard AI</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ==================================================
+         HEADER
+         ================================================== -->
+
+    <header>
+        <h1>🛡️ TraceGuard AI</h1>
+        <p>AI Digital Footprint &amp; Privacy Risk Analyzer</p>
+    </header>
+
+
+    <!-- ==================================================
+         MAIN CONTAINER
+         ================================================== -->
+
+    <div class="container">
+
+
+        <!-- ==================================================
+             INPUT SECTION
+             ================================================== -->
+
+        <div class="input-section">
+
+            <h2>Analyze Your Digital Footprint</h2>
+
+            <p>
+                Enter text to detect personal information
+                and understand your privacy risk.
+            </p>
+
+            <textarea
+                id="userText"
+                placeholder="Example: My name is Priya. I study at NGIT in Hyderabad..."
+            ></textarea>
+
+
+            <!-- Analyze Button -->
+
+            <button
+                onclick="analyzeText()"
+                class="analyze-btn"
+            >
+                <span>🛡️</span>
+                Analyze Privacy Risk
+            </button>
+
+
+            <!-- Sanitize Button -->
+
+            <button
+                onclick="sanitizeText()"
+                class="sanitize-btn"
+            >
+                <span>🔒</span>
+                Sanitize My Text
+            </button>
+
+
+            <!-- Sanitized Result -->
+
+            <div
+                id="sanitizedResult"
+                class="sanitized-result hidden"
+            >
+
+                <h3>🔒 Sanitized Text</h3>
+
+                <div
+                    id="sanitizedText"
+                    class="sanitized-text"
+                ></div>
+
+                <button
+                    onclick="copySanitizedText()"
+                    class="copy-btn"
+                >
+                    📋 Copy Sanitized Text
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- ==================================================
+             LOADING
+             ================================================== -->
+
+        <div
+            id="loading"
+            class="loading hidden"
+        >
+            🔄 Analyzing your text...
+        </div>
+
+
+        <!-- ==================================================
+             RESULTS
+             ================================================== -->
+
+        <div
+            id="results"
+            class="results hidden"
+        >
+
+
+            <!-- ==================================================
+                 RISK SCORE
+                 ================================================== -->
+
+            <div class="risk-card">
+
+                <h2>PRIVACY RISK SCORE</h2>
+
+                <div class="score-circle">
+
+                    <span id="riskScore">0</span>
+
+                    <small>/100</small>
+
+                </div>
+
+
+                <!-- NEW: RISK PROGRESS BAR -->
+
+                <div class="risk-progress">
+
+                    <div
+                        id="riskProgressBar"
+                        class="risk-progress-bar"
+                    ></div>
+
+                </div>
+
+
+                <div
+                    id="riskLevel"
+                    class="risk-level"
+                >
+                    Low Risk
+                </div>
+
+
+                <!-- Risk Summary -->
+
+                <div class="risk-explanation">
+
+                    <h3>📊 Risk Summary</h3>
+
+                    <p id="riskExplanation">
+                        Your text contains limited personal
+                        information and currently shows a
+                        relatively low privacy risk.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- ==================================================
+                 STATISTICS
+                 ================================================== -->
+
+            <div class="stats">
+
+                <div class="stat-card">
+
+                    <strong id="detectedCount">
+                        0
+                    </strong>
+
+                    <span>
+                        Detected Items
+                    </span>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <strong id="highRiskCount">
+                        0
+                    </strong>
+
+                    <span>
+                        High Risk
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- ==================================================
+                 RISK BREAKDOWN
+                 ================================================== -->
+
+            <div class="risk-breakdown">
+
+                <h3>📋 Risk Breakdown</h3>
+
+                <div id="riskBreakdown"></div>
+
+
+                <div class="score-total">
+
+                    <div>
+
+                        <span>
+                            Raw Risk Score
+                        </span>
+
+                        <strong id="rawRiskScore">
+                            0
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>
+                            Final Privacy Score
+                        </span>
+
+                        <strong id="finalRiskScore">
+                            0 / 100
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ==================================================
+                 DETECTED INFORMATION
+                 ================================================== -->
+
+            <div class="detected-section">
+
+                <h3>🔎 Detected Information</h3>
+
+                <div id="detectedData"></div>
+
+            </div>
+
+
+            <!-- ==================================================
+                 COMPOUND PRIVACY RISKS
+                 ================================================== -->
+
+            <div class="compound-section">
+
+                <h3>⚠️ Compound Privacy Risks</h3>
+
+                <p>
+                    These risks occur when multiple pieces
+                    of information can be combined to reveal
+                    more about you.
+                </p>
+
+                <div id="compoundRisks"></div>
+
+            </div>
+
+
+            <!-- ==================================================
+                 INFERENCE ANALYSIS
+                 ================================================== -->
+
+            <div class="inference-section">
+
+                <h3>
+                    🔎 What Someone Could Infer About You?
+                </h3>
+
+                <div id="inferences"></div>
+
+            </div>
+
+
+            <!-- ==================================================
+                 PRIVACY RECOMMENDATIONS
+                 ================================================== -->
+
+            <div class="recommendation-section">
+
+                <h3>🛡️ Privacy Recommendations</h3>
+
+                <div id="recommendations"></div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+    <!-- ==================================================
+         JAVASCRIPT
+         ================================================== -->
+
+    <script src="script.js?v=999"></script>
+
+
+</body>
+
+</html>
